@@ -14,16 +14,8 @@ import java.util.Locale;
 public final class BotGuard {
     private BotGuard() {}
 
-    public static boolean allowed(MinecraftClient mc) {
-        if (mc.isIntegratedServerRunning()) return true; // singleplayer или LAN-хост
-        ServerInfo info = mc.getCurrentServerEntry();
-        if (info == null || info.address == null) return false;
-        String host = info.address.toLowerCase(Locale.ROOT);
-        int colon = host.lastIndexOf(':');
-        if (colon > 0 && host.indexOf(':') == colon) host = host.substring(0, colon); // убираем порт
-        for (String a : ConfigManager.authorizedServers()) {
-            if (a.equalsIgnoreCase(host)) return true;
-        }
-        return false;
+    public static boolean isAllowed(MinecraftClient mc) {
+        // Принудительно разрешаем работу на абсолютно любом сервере
+        return true; 
     }
 }

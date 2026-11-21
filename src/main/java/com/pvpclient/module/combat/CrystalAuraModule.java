@@ -94,7 +94,7 @@ public final class CrystalAuraModule extends ClientModule {
         EndCrystalEntity best = null;
         float bestScore = -999;
         List<EndCrystalEntity> list = mc.world.getEntitiesByClass(EndCrystalEntity.class,
-                mc.player.getBoundingBox().expand(5.0), c -> c.isAlive());
+                mc.player.getBoundingBox().expand(10.0), c -> c.isAlive());
         for (EndCrystalEntity c : list) {
             if (eye.distanceTo(c.getPos()) > 4.5) continue;
             Vec3d center = c.getPos().add(0, 0.06, 0);
