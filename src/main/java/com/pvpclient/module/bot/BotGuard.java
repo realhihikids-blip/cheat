@@ -14,8 +14,12 @@ import java.util.Locale;
 public final class BotGuard {
     private BotGuard() {}
 
-    public static boolean isAllowed(MinecraftClient mc) {
-        // Принудительно разрешаем работу на абсолютно любом сервере
-        return true; 
+public static boolean allowed(MinecraftClient mc) {
+        // Метод, который исправляет ошибку сборки "cannot find symbol"
+        return true;
     }
-}
+
+    public static boolean isAllowed(MinecraftClient mc) {
+        // Оставляем вторую версию на случай, если кто-то вызывает её
+        return true;
+    }
